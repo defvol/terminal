@@ -1,3 +1,5 @@
+// Terminal methods
+
 var MESSAGES = {
   coderwall: "https://coderwall.com/wilhelmbot",
   github: "https://github.com/wilhelmbot",
@@ -14,7 +16,35 @@ var OPTIONS = {
   prompt: "Rod@HackBook ~ $ "
 };
 
+function help(term) {
+  term.echo(MESSAGES.help);
+}
+
+function unknown(command, term) {
+  term.error(MESSAGES.unknown + command);
+  help(term);
+}
+
+// Analytics
+
+function insertGoogleAnalytics() {
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8224887-4']);
+  _gaq.push(['_setDomainName', 'wilhel.me']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+}
+
+// On document ready:
+
 $(function() {
+
+  // 1 Initialize jQuery terminal
   $('body').terminal(function(command, term) {
     if (command == 'coderwall') {
       term.echo(MESSAGES.coderwall);
@@ -32,14 +62,9 @@ $(function() {
       unknown(command, term);
     }
   }, OPTIONS);
+
+  // 2 Inject Google code for analytics
+  insertGoogleAnalytics();
+
 });
-
-function help(term) {
-  term.echo(MESSAGES.help);
-}
-
-function unknown(command, term) {
-  term.error(MESSAGES.unknown + command);
-  help(term);
-}
 
