@@ -2,7 +2,7 @@
 
 var MESSAGES = {
   coderwall: "https://coderwall.com/wilhelmbot",
-  github: "https://github.com/wilhelmbot",
+  github: "https://github.com/rodowi",
   help: "available commands are coderwall, github, linkedin, twitter, whoami",
   linkedin: "https://www.linkedin.com/in/rwilhelmy",
   twitter: "https://twitter.com/rodowi",
