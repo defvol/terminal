@@ -4,7 +4,7 @@ var MESSAGES = {
   coderwall: "https://coderwall.com/wilhelmbot",
   github: "https://github.com/rodowi",
   help: "available commands are coderwall, github, linkedin, twitter, whoami",
-  linkedin: "https://www.linkedin.com/in/rwilhelmy",
+  linkedin: "https://www.linkedin.com/in/rodowi",
   twitter: "https://twitter.com/rodowi",
   unknown: "command not found: ",
   whoami: "A civic hacker who used to wear a grey hat. Currently Hacker-in-chief at http://codeandomexico.org"
