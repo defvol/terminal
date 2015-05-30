@@ -31,21 +31,10 @@ $(function() {
 
   // Initialize jQuery terminal
   $('body').terminal(function(command, term) {
-    if (command == 'coderwall') {
-      term.echo(MESSAGES.coderwall);
-    } else if (command == 'github') {
-      term.echo(MESSAGES.github);
-    } else if (command == 'help') {
-      help(term);
-    } else if (command == 'linkedin') {
-      term.echo(MESSAGES.linkedin);
-    } else if (command == 'twitter') {
-      term.echo(MESSAGES.twitter);
-    } else if (command == 'whoami') {
-      term.echo(MESSAGES.whoami);
-    } else {
+    if (command in MESSAGES)
+      term.echo(MESSAGES[command]);
+    else
       unknown(command, term);
-    }
   }, OPTIONS);
 
 });
