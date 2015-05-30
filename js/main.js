@@ -3,8 +3,9 @@
 var MESSAGES = {
   coderwall: "https://coderwall.com/wilhelmbot",
   github: "https://github.com/rodowi",
-  help: "available commands are coderwall, github, linkedin, twitter, whoami",
+  help: "available commands are coderwall, github, help, linkedin, projects, twitter, whoami",
   linkedin: "https://www.linkedin.com/in/rodowi",
+  projects: "See my latest projects at https://github.com/mxabierto",
   twitter: "https://twitter.com/rodowi",
   unknown: "command not found: ",
   whoami: "I hack bureaucracies and computer systems.\nCurrently leading a team of hackers to open up the Mexican government, and build open source technologies for development and resilience."
