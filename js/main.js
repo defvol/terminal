@@ -7,7 +7,7 @@ var MESSAGES = {
   linkedin: "https://www.linkedin.com/in/rodowi",
   twitter: "https://twitter.com/rodowi",
   unknown: "command not found: ",
-  whoami: "A civic hacker who used to wear a grey hat. I hack bureaucracies and computer systems. AMA on twitter."
+  whoami: "I hack bureaucracies and computer systems.\nCurrently leading a team of hackers to open up the Mexican government, and build open source technologies for development and resilience."
 };
 
 var OPTIONS = {
