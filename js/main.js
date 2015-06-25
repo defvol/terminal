@@ -1,9 +1,10 @@
 // Terminal methods
 
 var MESSAGES = {
+  blog: "http://rodowi.github.io/refactor/",
   coderwall: "https://coderwall.com/wilhelmbot",
   github: "https://github.com/rodowi",
-  help: "available commands are coderwall, github, help, linkedin, projects, twitter, whoami",
+  help: "available commands are blog, coderwall, github, help, linkedin, projects, twitter, whoami",
   linkedin: "https://www.linkedin.com/in/rodowi",
   projects: "See my latest projects at https://github.com/mxabierto",
   twitter: "https://twitter.com/rodowi",
