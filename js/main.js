@@ -16,7 +16,7 @@ var MESSAGES = {
 var OPTIONS = {
   greetings: "Booting...",
   onBlur: function() { return false; },
-  prompt: "Rod@HackBook ~ $ "
+  prompt: "guest@localhost ~ $ "
 };
 
 function help(term) {
