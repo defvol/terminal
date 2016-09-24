@@ -10,7 +10,7 @@ var MESSAGES = {
   projects: "See my latest projects at https://github.com/mxabierto",
   twitter: "https://twitter.com/rodowi",
   unknown: "command not found: ",
-  whoami: "I hack bureaucracies and computer systems.\nCurrently leading a team of hackers to open up the Mexican government, and build Free and open-source software (FOSS) for development, democracy, and resilience."
+  whoami: "I write computer programs."
 };
 
 var OPTIONS = {
