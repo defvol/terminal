@@ -48,7 +48,7 @@ var timer;
 var prompt;
 var string;
 
-function startLoading(term) {
+function startLoading(term, done) {
   var i = 0, size = 80;
   prompt = term.get_prompt();
   string = progress(0, size);
@@ -62,9 +62,21 @@ function startLoading(term) {
     } else {
       term.echo(progress(i, size) + ' [[b;green;]OK]')
       .set_prompt(prompt);
-      animation = false
+      animation = false;
+      done();
     }
   })();
+}
+
+function type(term, message, delay, done) {
+  var c = 0;
+  var interval = setInterval(function() {
+    term.insert(message[c++]);
+    if (c == message.length) {
+      clearInterval(interval);
+      setTimeout(done, delay);
+    }
+  }, delay);
 }
 
 // On document ready:
@@ -72,13 +84,23 @@ function startLoading(term) {
 $(function() {
 
   // Initialize jQuery terminal
-  var terminal = $('body').terminal(function(command, term) {
+  var term = $('body').terminal(function(command, term) {
     if (command in MESSAGES)
       term.echo(MESSAGES[command]);
     else
       unknown(command, term);
   }, OPTIONS);
 
-  startLoading(terminal);
+  var greeting = [
+    'Hello friend. Here we are again.',
+    'We wanted to save the world. Did you think it would be that easy?'
+  ]
+
+  startLoading(term, function () {
+    type(term, greeting.join(' '), 100, function () {
+      term.set_command('');
+      term.echo('Our real work is just beginning. Now type something.')
+    });
+  });
 
 });
