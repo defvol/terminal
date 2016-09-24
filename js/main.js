@@ -58,7 +58,7 @@ function startLoading(term) {
     string = progress(i++, size);
     term.set_prompt(string);
     if (i < 100) {
-      timer = setTimeout(loop, 50);
+      timer = setTimeout(loop, 20);
     } else {
       term.echo(progress(i, size) + ' [[b;green;]OK]')
       .set_prompt(prompt);
