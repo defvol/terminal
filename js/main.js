@@ -70,15 +70,24 @@ function startLoading(term, done) {
   })();
 }
 
-function type(term, message, delay, done) {
-  var c = 0;
-  var interval = setInterval(function() {
-    term.insert(message[c++]);
-    if (c == message.length) {
-      clearInterval(interval);
-      setTimeout(done, delay);
-    }
-  }, delay);
+function type(term, message, done) {
+  var sequence = [];
+
+  for (var c = 0; c < message.length; c++) {
+    var wfun = async.apply(write, message[c], Math.random() * 50 + 25);
+    sequence.push(wfun);
+
+    if (message[c] == '.')
+      sequence.push(async.apply(write, '', 400));
+    if (message[c] == '?')
+      sequence.push(async.apply(write, '', 1500));
+  }
+
+  async.series(sequence, done);
+
+  function write(char, delay, cb) {
+    setTimeout(function () { cb(null, term.insert(char)) }, delay);
+  }
 }
 
 // On document ready:
@@ -100,7 +109,7 @@ $(function() {
 
   async.series([
     async.apply(startLoading, term),
-    async.apply(type, term, greeting.join(' '), 100)
+    async.apply(type, term, greeting.join(' '))
   ],
   function(err, results) {
     term.set_command('');
