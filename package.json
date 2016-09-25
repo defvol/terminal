@@ -1,0 +1,24 @@
+{
+  "name": "terminal",
+  "version": "1.0.0",
+  "description": "whoami",
+  "main": "js/main.js",
+  "scripts": {
+    "build": "browserify js/main.js -o js/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodowi/terminal.git"
+  },
+  "author": "Ro Wilhelmy <rwilhelmy@gmail.com> (http://wilhel.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodowi/terminal/issues"
+  },
+  "homepage": "https://github.com/rodowi/terminal#readme",
+  "dependencies": {
+    "async": "^2.0.1",
+    "browserify": "^13.1.0"
+  }
+}
