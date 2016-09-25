@@ -1,3 +1,5 @@
+var async = require("async");
+
 // Terminal methods
 
 var MESSAGES = {
@@ -96,11 +98,13 @@ $(function() {
     'We wanted to save the world. Did you think it would be that easy?'
   ]
 
-  startLoading(term, function () {
-    type(term, greeting.join(' '), 100, function () {
-      term.set_command('');
-      term.echo('Our real work is just beginning. Now type something.')
-    });
+  async.series([
+    async.apply(startLoading, term),
+    async.apply(type, term, greeting.join(' '), 100)
+  ],
+  function(err, results) {
+    term.set_command('');
+    term.echo('Our real work is just beginning. Now type something.');
   });
 
 });
